@@ -33,7 +33,7 @@ declare namespace vorpal {
         options: TOptions;
     }
 
-    export type Autocomplete = { (input: string, cb?: () => void): string[] | PromiseLike<string[]> };
+    export type Autocomplete = (input: string, cb?: () => void) => string[] | PromiseLike<string[]>;
 
     export class Command<TArgs> extends EventEmitter {
         alias(name: string, ...names: string[]): this;
@@ -45,8 +45,8 @@ declare namespace vorpal {
 
         validate<TOptions>(fn: (args: IArgs<TOptions> & TArgs) => boolean | string): this;
 
-        action<TOptions>(fn: (args: IArgs<TOptions> & TArgs, cb: () => void) => void): this;
-        action<TOptions>(fn: (args: IArgs<TOptions> & TArgs) => PromiseLike<any>): this;
+        action<TOptions>(fn: (this: CommandInstance, args: IArgs<TOptions> & TArgs, cb: () => void) => void): this;
+        action<TOptions>(fn: (this: CommandInstance, args: IArgs<TOptions> & TArgs) => PromiseLike<any>): this;
     }
 
     export class CommandInstance {
