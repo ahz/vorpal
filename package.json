@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/dthree/vorpal#readme",
   "devDependencies": {
+    "@types/minimist": "^1.1.29",
     "babel": "^6.3.26",
     "babel-core": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
