@@ -8,7 +8,7 @@ declare namespace vorpal {
     export type CallbackFunction<T> = (err?: string | Error, data?: T) => void;
 
     export class Vorpal extends EventEmitter {
-        activeCommand: Command<any>;
+        activeCommand: CommandInstance;
 
         command<TArgs>(cmd: string, description?: string): Command<TArgs>;
 
@@ -36,8 +36,6 @@ declare namespace vorpal {
     export type Autocomplete = { (input: string, cb?: () => void): string[] | PromiseLike<string[]> };
 
     export class Command<TArgs> extends EventEmitter {
-        log(...msg: string[]): void;
-
         alias(name: string, ...names: string[]): this;
         types(types: { [arg: string]: string | string[] }): this;
 
@@ -49,6 +47,10 @@ declare namespace vorpal {
 
         action<TOptions>(fn: (args: IArgs<TOptions> & TArgs, cb: () => void) => void): this;
         action<TOptions>(fn: (args: IArgs<TOptions> & TArgs) => PromiseLike<any>): this;
+    }
+
+    export class CommandInstance {
+        log(...msg: string[]): void;
     }
 }
 
