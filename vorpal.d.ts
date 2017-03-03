@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events';
 import { ParsedArgs } from 'minimist';
+import * as inquirer from 'inquirer';
 
 declare function vorpal(): vorpal.Vorpal;
 
@@ -51,6 +52,11 @@ declare namespace vorpal {
 
     export class CommandInstance {
         log(...msg: string[]): void;
+
+        delimiter(delimiter: string): void;
+
+        prompt(questions: inquirer.Questions, cb: (answers: inquirer.Answers) => any): inquirer.ui.Prompt;
+        prompt(questions: inquirer.Questions): Promise<inquirer.Answers>;
     }
 }
 
