@@ -20,7 +20,7 @@ declare namespace vorpal {
         hide(): this;
         find(command: string): Command<any>;
         exec<T>(command: string, callback?: CallbackFunction<T>): PromiseLike<T>;
-        execSync<T>(command: string, options: { fatal: boolean }): T;
+        execSync<T>(command: string, options?: { fatal: boolean }): T;
         log(...msg: string[]): this;
         history(id: string): this;
         localStorage: typeof localStorage & { (id: string): void };
