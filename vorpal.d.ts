@@ -48,6 +48,7 @@ declare namespace vorpal {
 
         action<TOptions>(fn: (this: CommandInstance, args: IArgs<TOptions> & TArgs, cb: () => void) => void): this;
         action<TOptions>(fn: (this: CommandInstance, args: IArgs<TOptions> & TArgs) => PromiseLike<any>): this;
+        allowUnknownOptions(): this;
     }
 
     export class CommandInstance {
