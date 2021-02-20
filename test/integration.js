@@ -5,7 +5,7 @@ var commands = require('./util/server');
 var BlueBirdPromise = require('bluebird');
 var fs = require('fs');
 
-var intercept = require('../dist/intercept');
+var intercept = require('../lib/intercept');
 var stdout = '';
 var umute;
 var mute = function () {

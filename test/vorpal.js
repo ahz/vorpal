@@ -8,7 +8,7 @@
 var Vorpal = require('../');
 var should = require('should');
 var assert = require('assert');
-var intercept = require('../dist/intercept');
+var intercept = require('../lib/intercept');
 
 var vorpal;
 
